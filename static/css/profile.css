@@ -1,0 +1,164 @@
+/* Profile section */
+.profile-form p:first-child {
+    margin-top: 0rem;
+}
+.profile-form {
+    padding: 2rem 2rem 0 2rem;
+    text-align: center;
+    background-color: var(--light-text-color);
+}
+
+.profile-form form {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.profile-form label {
+    margin-top: 1rem;
+    text-align: left;
+    color: var(--dark-accent-color);
+}
+
+.profile-form input, .profile-form textarea, .profile-form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--dark-accent-color);
+    border-radius: 5px;
+    color: var(--dark-text-color);
+    background-color: var(--light-text-color);
+}
+
+.profile-form input:focus, .profile-form textarea:focus, .profile-form select:focus {
+    outline: 1px solid var(--dark-accent-color);
+}
+
+.profile-form select {
+    font: inherit;
+}
+
+.profile-form button {
+    margin-top: 1rem;
+}
+
+.profile-form p {
+    margin-top: 1rem;
+    color: var(--dark-text-color);
+}
+
+.profile-form a {
+    color: var(--dark-accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-decoration: underline;
+}
+
+.profile-form a:hover {
+    color: var(--hover-link-color);
+}
+
+.profile-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.profile-form .user-warning {
+    display: none;
+    justify-content: center;
+    color: #ff3333;
+}
+
+.delete-account {
+    padding: 2rem 0rem 0rem;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.delete-account p {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.delete-account button {
+    width: 100%;
+}
+
+
+/* Account deletion banner */
+html.noscroll {
+    overflow: hidden;
+}
+
+.deletion-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 800;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.deletion-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    padding: 1rem;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    visibility: hidden;
+    background-color: var(--light-accent-color);
+    color: var(--dark-accent-color);
+}
+
+.deletion-header {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.deletion-header svg {
+    enable-background:new 0 0 120.23 122.88;
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+    fill: var(--dark-accent-color);
+    width: 26px;
+    height: 26px;
+    transition: fill 0.3s;
+}
+
+.deletion-buttons {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.accept-deletion-button {
+    border: 2px solid var(--dark-accent-color);
+}
+
+.cancel-deletion-button {
+    border: 2px solid var(--dark-accent-color);
+    background-color: var(--light-text-color);
+    color: var(--dark-accent-color);
+}
+
+.cancel-deletion-button:hover {
+    background-color: var(--light-accent-color);
+}

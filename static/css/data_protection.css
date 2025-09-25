@@ -1,0 +1,9 @@
+/* Text section */
+.text h1 {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.link-wrap {
+    word-break: break-all;
+}

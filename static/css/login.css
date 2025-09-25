@@ -1,0 +1,75 @@
+/* Login section */
+.login-form {
+    padding: 2rem 2rem 0 2rem;
+    text-align: center;
+    background-color: var(--light-text-color);
+}
+
+.login-form form {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.login-form label {
+    margin-top: 1rem;
+    text-align: left;
+    color: var(--dark-accent-color);
+}
+
+.login-form input, .login-form textarea, .login-form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--dark-accent-color);
+    border-radius: 5px;
+    color: var(--dark-text-color);
+    background-color: var(--light-text-color);
+}
+
+.login-form input:focus, .login-form textarea:focus, .login-form select:focus {
+    outline: 1px solid var(--dark-accent-color);
+}
+
+.login-form select {
+    font: inherit;
+}
+
+.login-form button {
+    margin-top: 1rem;
+}
+
+.login-form p {
+    margin-top: 1rem;
+    color: var(--dark-text-color);
+}
+
+.login-form a {
+    color: var(--dark-accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-decoration: underline;
+}
+
+.login-form a:hover {
+    color: var(--hover-link-color);
+}
+
+.login-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.login-form #login-warning {
+    display: none;
+    justify-content: center;
+    color: #ff3333;
+}
+
+.login-form #register-warning {
+    display: none;
+    justify-content: center;
+    color: #ff3333;
+}

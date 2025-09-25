@@ -1,0 +1,13 @@
+services:
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+
+      MONGO_INITDB_DATABASE: travel_blog
+
+volumes:
+  mongo_data:

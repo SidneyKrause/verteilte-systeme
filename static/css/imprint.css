@@ -1,0 +1,82 @@
+/* About us text and image section */
+.about-us {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.text {
+    flex: 4;
+    padding: 0;
+    margin: 0;
+}
+
+.text h1, .info h1, .info h2, .info p {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.text li:first-of-type {
+    margin-top: 0;
+}
+
+.about-us-image-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-image-section img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+/* Info box sections */
+.info h2 {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.info ul {
+    list-style-type: none;
+}
+
+.info li {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+}
+
+.info ul:last-child li:nth-last-child(-n+2) {
+    margin-top: 1rem;
+}
+
+.info svg {
+    fill: var(--dark-accent-color);
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+}
+
+.info a, .text a {
+    color: var(--dark-accent-color);
+}
+
+/* Imprint text section */
+.imprint {
+    padding: 2rem 2rem 0 2rem;
+}
+
+/* Media queries */
+@media (max-width: 800px) {
+    .about-us {
+        flex-direction: column;
+    }
+
+    .about-us-image-section {
+        order: -1;
+    }
+}

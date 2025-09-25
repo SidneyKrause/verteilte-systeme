@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datenschutzerklärung von Beyond Borders: Hier erfährst du, wie wir deine persönlichen Daten schützen und verarbeiten sowie welche Maßnahmen zur Datensicherheit wir auf unserer Website getroffen haben.">
+    <title>Beyond Borders - Datenschutz</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/data_protection.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/landing_page/favicon.ico">
+</head>
+<body>
+    <!-- Logo and navigation logic -->
+    <header>
+        <nav>
+            <a href="/" class="nav-logo">
+                <img src="/static/img/landing_page/logo_small.PNG" alt="Beyond Borders Logo: Ein weißes Flugzeug, welches durch eine blaue Wolke fliegt">
+                <p>Beyond Borders</p>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/destinations">Reiseziele</a></li>
+                <li><a href="/advice">Tipps</a></li>
+                <li><a href="/gallery">Unterkünfte</a></li>
+                <li onmouseover="showProfileMenu(1)" onmouseout="hideProfileMenu(1)"><svg width="25px" height="25px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 47.9219 C 16.9374 47.9219 8.1014 39.0625 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9454 39.0625 39.0390 47.9219 27.9999 47.9219 Z M 27.9999 26.6875 C 31.3983 26.7109 34.1171 23.8047 34.1171 19.9844 C 34.1171 16.4219 31.3983 13.4453 27.9999 13.4453 C 24.6014 13.4453 21.8827 16.4219 21.8827 19.9844 C 21.8827 23.8047 24.6014 26.6641 27.9999 26.6875 Z M 17.0780 39.9766 L 38.8983 39.9766 C 39.8358 39.9766 40.3046 39.3437 40.3046 38.5 C 40.3046 35.8750 36.3671 29.1016 27.9999 29.1016 C 19.6327 29.1016 15.6952 35.8750 15.6952 38.5 C 15.6952 39.3437 16.1640 39.9766 17.0780 39.9766 Z"/></svg></li>
+            </ul>
+            <p class="nav-burger" onclick="showBurgerMenu()">&#9776;</p>
+        </nav>
+        <ul class="nav-profile-links" onmouseover="showProfileMenu(1)" onmouseout="hideProfileMenu(1)">
+            {% if not user.is_authenticated %}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Registrieren</a></li>
+            {%else%}
+            <li><a href="/profile">Profil</a></li>
+            <li><a href="/logout">Logout</a></li>
+            {% endif %}
+        </ul>
+        <ul class="nav-burger-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/destinations">Reiseziele</a></li>
+            <li><a href="/advice">Tipps</a></li>
+            <li><a href="/gallery">Unterkünfte</a></li>
+            <li onmouseover="showProfileMenu(2)" onmouseout="hideProfileMenu(2)"><svg width="25px" height="25px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 47.9219 C 16.9374 47.9219 8.1014 39.0625 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9454 39.0625 39.0390 47.9219 27.9999 47.9219 Z M 27.9999 26.6875 C 31.3983 26.7109 34.1171 23.8047 34.1171 19.9844 C 34.1171 16.4219 31.3983 13.4453 27.9999 13.4453 C 24.6014 13.4453 21.8827 16.4219 21.8827 19.9844 C 21.8827 23.8047 24.6014 26.6641 27.9999 26.6875 Z M 17.0780 39.9766 L 38.8983 39.9766 C 39.8358 39.9766 40.3046 39.3437 40.3046 38.5 C 40.3046 35.8750 36.3671 29.1016 27.9999 29.1016 C 19.6327 29.1016 15.6952 35.8750 15.6952 38.5 C 15.6952 39.3437 16.1640 39.9766 17.0780 39.9766 Z"/></svg></li>
+        </ul>
+    </header>
+    
+    <main>
+        <!-- Text sections -->
+        <p class="text">Der Schutz deiner persönlichen Daten ist uns ein wichtiges Anliegen. In dieser Datenschutzerklärung informieren wir dich darüber, wie wir personenbezogene Daten auf unserer Website erfassen, verarbeiten und schützen.</p>
+       
+        <section class="text">
+            <h1>1. Verantwortlicher</h1>
+            <p>Verantwortlich für die Datenverarbeitung auf dieser Website sind:</p>
+            <ul><i>
+                <li><p>Sidney Krause & Annemarie Gerdes</p></li>
+                <li><p>Musterweg 32, 74072 Heilbronn</p></li>
+                <!-- It is intended that the following email is not formatted as a mailto link -->
+                <li><p class="link-wrap">muster.23@heilbronn.dhbw.de</p></li>
+            </i></ul>
+        </section>
+
+        <section class="text">
+            <h1>2. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck von deren Verwendung</h1>
+            <h2>a. Besuch der Website</h2>
+            <p>Beim Aufrufen unserer Website werden automatisch Informationen durch den auf deinem Endgerät zum Einsatz kommenden Browser an unseren Server gesendet. Diese Informationen werden temporär in einem sogenannten Logfile gespeichert. Folgende Informationen werden dabei ohne dein Zutun erfasst und bis zur automatisierten Löschung gespeichert:
+            <ul class="text-list">
+                <li><p>IP-Adresse des anfragenden Rechners,</p></li>
+                <li><p>Datum und Uhrzeit des Zugriffs,</p></li>
+                <li><p>Name und URL der abgerufenen Datei,</p></li>
+                <li><p>Website, von der aus der Zugriff erfolgt (Referrer-URL),</p></li>
+                <li><p>verwendeter Browser und ggf. das Betriebssystem deines Rechners sowie der Name deines Access-Providers.</p></li>
+            </ul>
+        
+            <p>Die genannten Daten werden durch uns zu folgenden Zwecken verarbeitet:</p>
+
+            <ul class="text-list">
+                <li><p>Gewährleistung eines reibungslosen Verbindungsaufbaus der Website,</p></li>
+                <li><p>Gewährleistung einer komfortablen Nutzung unserer Website,</p></li>
+                <li><p>Auswertung der Systemsicherheit und -stabilität sowie</p></li>
+                <li><p>zu weiteren administrativen Zwecken.</p></li>
+            </ul>
+
+            <p>Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO. Unser berechtigtes Interesse folgt aus den oben aufgelisteten Zwecken zur Datenerhebung.</p> In keinem Fall verwenden wir die erhobenen Daten zu dem Zweck, Rückschlüsse auf deine Person zu ziehen.</p>
+
+            <h2>b. Nutzung des Kontaktformulars oder Abonnements</h2>
+            <p>Wenn du uns per Kontaktformular Anfragen zukommen lässt oder dich für unseren Newsletter anmeldest, werden deine Angaben aus dem Anfrageformular oder die E-Mail-Adresse zum Zwecke der Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne deine Einwilligung weiter.
+
+            Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt somit ausschließlich auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>
+        </section>
+
+        <section class="text">
+            <h1>3. Weitergabe von Daten</h1>
+            <p>Eine Übermittlung deiner persönlichen Daten an Dritte zu anderen als den im Folgenden aufgeführten Zwecken findet nicht statt. Wir geben deine persönlichen Daten nur an Dritte weiter, wenn:
+
+            du nach Art. 6 Abs. 1 S. 1 lit. a DSGVO deine ausdrückliche Einwilligung dazu erteilt hast,
+            die Weitergabe nach Art. 6 Abs. 1 S. 1 lit. f DSGVO zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist und kein Grund zur Annahme besteht, dass du ein überwiegendes schutzwürdiges Interesse an der Nichtweitergabe deiner Daten hast,
+            für den Fall, dass für die Weitergabe nach Art. 6 Abs. 1 S. 1 lit. c DSGVO eine gesetzliche Verpflichtung besteht, sowie
+            dies gesetzlich zulässig und nach Art. 6 Abs. 1 S. 1 lit. b DSGVO für die Abwicklung von Vertragsverhältnissen mit dir erforderlich ist.</p>
+        </section>
+
+        <section class="text">
+            <h1>4. Cookies und Analysetools<h1>
+            <h2>a. Cookies</h2>
+            <p>Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Dateien, die dein Browser automatisch erstellt und die auf deinem Endgerät gespeichert werden, wenn du unsere Seite besuchst. Cookies richten auf deinem Endgerät keinen Schaden an und enthalten keine Viren, Trojaner oder sonstige Schadsoftware.
+
+            In dem Cookie werden Informationen abgelegt, die sich jeweils im Zusammenhang mit dem spezifisch eingesetzten Endgerät ergeben. Dies bedeutet jedoch nicht, dass wir dadurch unmittelbar Kenntnis von deiner Identität erhalten.</p>
+
+            <h2>b. Analysetools</h2>
+            <p>Wir setzen auf unserer Website Analysetools ein, um das Verhalten der Besucher besser zu verstehen und unser Angebot zu optimieren. Details zu den Analysetools und dem Umgang mit deinen Daten findest du in den Einstellungen der verwendeten Dienste.</p>
+        </section>
+
+        <section class="text">
+            <h1>5. Betroffenenrechte</h1>
+            <p>Du hast das Recht:</p>
+            <ul class="text-list">
+                <li><p>gemäß Art. 15 DSGVO Auskunft über deine von uns verarbeiteten personenbezogenen Daten zu verlangen,</p></li>
+                <li><p>gemäß Art. 16 DSGVO unverzüglich die Berichtigung unrichtiger oder Vervollständigung deiner bei uns gespeicherten personenbezogenen Daten zu verlangen,</p></li>
+                <li><p>gemäß Art. 17 DSGVO die Löschung deiner bei uns gespeicherten personenbezogenen Daten zu verlangen, sofern nicht die Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist,</p></li>
+                <li><p>gemäß Art. 18 DSGVO die Einschränkung der Verarbeitung deiner personenbezogenen Daten zu verlangen,</p></li>
+                <li><p>gemäß Art. 20 DSGVO deine personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder die Übermittlung an einen anderen Verantwortlichen zu verlangen,</p></li>
+                <li><p>gemäß Art. 7 Abs. 3 DSGVO deine einmal erteilte Einwilligung jederzeit uns gegenüber zu widerrufen und</p></li>
+                <li><p>gemäß Art. 77 DSGVO sich bei einer Aufsichtsbehörde zu beschweren.</p></li>
+            </ul>
+        </section>
+        
+        <section class="text">
+                <h1>6. Datensicherheit</h1>
+                <p>Wir verwenden innerhalb des Website-Besuchs das verbreitete SSL-Verfahren (Secure Socket Layer) in Verbindung mit der jeweils höchsten Verschlüsselungsstufe, die von deinem Browser unterstützt wird. Wir setzen zudem geeignete technische und organisatorische Sicherheitsmaßnahmen ein, um deine Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.</p>
+        </section>
+
+        <section class="text">
+            <h1>7. Aktualität und Änderung dieser Datenschutzerklärung</h1>
+            <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand November 2024. Durch die Weiterentwicklung unserer Website und Angebote darüber oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf der Website unter dem Reiter "Datenschutz" von dir abgerufen und ausgedruckt werden.</p>
+        </section>
+    </main>
+
+    <!-- It is intended that there is no cookie banner on this page -->
+
+    <!-- Social media and further links -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="/">Über uns</a></li>
+            <li><a href="/imprint?section=scroll-target">Impressum</a></li>
+            <li><a href="/data-protection">Datenschutz</a></li>
+            <li><a href="/contact">Kontakt</a></li>
+        </ul>
+        <ul class="social-media">
+            <li>
+                <a href="https://www.facebook.com">
+                    <svg viewBox="0 0 50 50"> 
+                        <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,0.5-3,2 v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"> 
+                        <desc>Facebook Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"/>
+                        <desc>Instagram Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.pinterest.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M25,2C12.3178711,2,2,12.3178711,2,25c0,9.8841553,6.2675781,18.3302612,15.036377,21.5769653	c-0.2525635-2.2515869-0.2129517-5.9390259,0.2037964-7.7243652c0.3902588-1.677002,2.5212402-10.6871338,2.5212402-10.6871338	s-0.6433105-1.2883301-0.6433105-3.1911011c0-2.9901733,1.7324219-5.2211914,3.8898315-5.2211914	c1.8349609,0,2.7197876,1.3776245,2.7197876,3.0281982c0,1.8457031-1.1734619,4.6026611-1.78125,7.1578369	c-0.506897,2.1409302,1.0733643,3.8865356,3.1836548,3.8865356c3.821228,0,6.7584839-4.0296021,6.7584839-9.8453369	c0-5.147583-3.697998-8.7471924-8.9795532-8.7471924c-6.1167603,0-9.7072754,4.588562-9.7072754,9.3309937	c0,1.8473511,0.7111816,3.8286743,1.6000977,4.9069824c0.175293,0.2133179,0.2009277,0.3994141,0.1488647,0.6160278	c-0.1629028,0.678894-0.5250854,2.1392822-0.5970459,2.4385986c-0.0934448,0.3944702-0.3117676,0.4763184-0.7186279,0.2869263	c-2.685791-1.2503052-4.364502-5.1756592-4.364502-8.3295898c0-6.7815552,4.9268188-13.0108032,14.206543-13.0108032	c7.4588623,0,13.2547607,5.3138428,13.2547607,12.4179077c0,7.4100342-4.6729126,13.3729858-11.1568604,13.3729858	c-2.178894,0-4.2263794-1.132019-4.9267578-2.4691772c0,0-1.0783081,4.1048584-1.3404541,5.1112061	c-0.4524536,1.7404175-2.3892822,5.3460083-3.3615723,6.9837036C20.1704712,47.6074829,22.5397949,48,25,48	c12.6826172,0,23-10.3173828,23-23C48,12.3178711,37.6826172,2,25,2z"/>
+                        <desc>Pinterest Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"/>
+                        <desc>YouTube Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"/>
+                        <desc>TikTok Logo</desc>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <p>&copy; <span class="current-year"></span> Beyond Borders. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

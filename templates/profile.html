@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hier kannst du dein Nutzerprofil einsehen und Änderungen vornehemen.">
+    <title>Beyond Borders - Profil</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="icon" type="image/x-icon" href="/static/img/landing_page/favicon.ico">
+</head>
+<body>
+    <!-- Logo and navigation logic -->
+    <header>
+        <nav>
+            <a href="/" class="nav-logo">
+                <img src="/static/img/landing_page/logo_small.PNG" alt="Beyond Borders Logo: Ein weißes Flugzeug, welches durch eine blaue Wolke fliegt">
+                <p>Beyond Borders</p>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/destinations">Reiseziele</a></li>
+                <li><a href="/advice">Tipps</a></li>
+                <li><a href="/gallery">Unterkünfte</a></li>
+                <li onmouseover="showProfileMenu(1)" onmouseout="hideProfileMenu(1)"><svg width="25px" height="25px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 47.9219 C 16.9374 47.9219 8.1014 39.0625 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9454 39.0625 39.0390 47.9219 27.9999 47.9219 Z M 27.9999 26.6875 C 31.3983 26.7109 34.1171 23.8047 34.1171 19.9844 C 34.1171 16.4219 31.3983 13.4453 27.9999 13.4453 C 24.6014 13.4453 21.8827 16.4219 21.8827 19.9844 C 21.8827 23.8047 24.6014 26.6641 27.9999 26.6875 Z M 17.0780 39.9766 L 38.8983 39.9766 C 39.8358 39.9766 40.3046 39.3437 40.3046 38.5 C 40.3046 35.8750 36.3671 29.1016 27.9999 29.1016 C 19.6327 29.1016 15.6952 35.8750 15.6952 38.5 C 15.6952 39.3437 16.1640 39.9766 17.0780 39.9766 Z"/></svg></li>
+            </ul>
+            <p class="nav-burger" onclick="showBurgerMenu()">&#9776;</p>
+        </nav>
+        <ul class="nav-profile-links" onmouseover="showProfileMenu(1)" onmouseout="hideProfileMenu(1)">
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+        <ul class="nav-burger-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/destinations">Reiseziele</a></li>
+            <li><a href="/advice">Tipps</a></li>
+            <li><a href="/gallery">Unterkünfte</a></li>
+            <li onmouseover="showProfileMenu(2)" onmouseout="hideProfileMenu(2)"><svg width="25px" height="25px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><path d="M 27.9999 51.9063 C 41.0546 51.9063 51.9063 41.0781 51.9063 28 C 51.9063 14.9453 41.0312 4.0937 27.9765 4.0937 C 14.8983 4.0937 4.0937 14.9453 4.0937 28 C 4.0937 41.0781 14.9218 51.9063 27.9999 51.9063 Z M 27.9999 47.9219 C 16.9374 47.9219 8.1014 39.0625 8.1014 28 C 8.1014 16.9609 16.9140 8.0781 27.9765 8.0781 C 39.0155 8.0781 47.8983 16.9609 47.9219 28 C 47.9454 39.0625 39.0390 47.9219 27.9999 47.9219 Z M 27.9999 26.6875 C 31.3983 26.7109 34.1171 23.8047 34.1171 19.9844 C 34.1171 16.4219 31.3983 13.4453 27.9999 13.4453 C 24.6014 13.4453 21.8827 16.4219 21.8827 19.9844 C 21.8827 23.8047 24.6014 26.6641 27.9999 26.6875 Z M 17.0780 39.9766 L 38.8983 39.9766 C 39.8358 39.9766 40.3046 39.3437 40.3046 38.5 C 40.3046 35.8750 36.3671 29.1016 27.9999 29.1016 C 19.6327 29.1016 15.6952 35.8750 15.6952 38.5 C 15.6952 39.3437 16.1640 39.9766 17.0780 39.9766 Z"/></svg></li>
+        </ul>
+    </header>
+    
+    <main>
+        <h2 class="info">Mein Profil</h2>
+
+        <!-- Profile information update section -->
+        <section class="profile-form" id="display-information">
+            <p>Account-Informationen</p>
+            <form>
+                <label for="first-name">Vorname:</label>
+                <input type="text" id="first-name" name="first-name" required min="1">
+
+                <label for="last-name">Nachname:</label>
+                <input type="text" id="last-name" name="last-name" required min="1">
+
+                <label for="age">Alter:</label>
+                <input type="number" id="age" name="age" required min="1">
+
+                <label for="gender">Geschlecht:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected></option>
+                    <option value="male">männlich</option>
+                    <option value="female">weiblich</option>
+                    <option value="diverse">divers</option>
+
+                </select>
+                    <label for="username">Email:</label>
+                <input type="email" id="username" name="username" required>
+
+                <p class="user-warning" id="information-warning">Diese Angaben sind bereits hinterlegt.</p>
+                <button type="submit">Informationen ändern</button>
+            </form>
+        </section>
+
+        <!-- Profile password update section -->
+        <section class="profile-form" id="reset-password">
+            <p>Account-Passwort</p>
+            <form>
+                <label for="password">Neues Passwort:</label>
+                <input type="password" id="password" name="new-password" required></input>
+
+                <label for="confirm-password">Neues Passwort bestätigen:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required></input>
+
+                <p class="user-warning" id="password-warning">Passwörter stimmen nicht überein</p>
+                <button type="submit">Passwort ändern</button>
+            </form>
+        </section>
+
+        <!-- Profile account deletion section -->
+        <section class="delete-account">
+            <p>Account-Löschung</p>
+            <button onclick="checkDeletion()">Account löschen</button>
+        </section>
+
+        <!-- Profile deletion section -->
+        <div class="deletion-banner">
+            <div class="deletion-header">
+                <svg width="50px" height="50px" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M7,16 L17,16 C19.7614237,16 22,18.2385763 22,21 C22,21.5522847 21.5522847,22 21,22 C20.4871642,22 20.0644928,21.6139598 20.0067277,21.1166211 L19.9949073,20.8237272 C19.9070404,19.3072462 18.6927538,18.0929596 17.1762728,18.0050927 L17,18 L7,18 C5.34314575,18 4,19.3431458 4,21 C4,21.5522847 3.55228475,22 3,22 C2.44771525,22 2,21.5522847 2,21 C2,18.3112453 4.12230671,16.1181819 6.78311038,16.0046195 L7,16 Z M12,2 C12.4062134,2 12.8078123,2.04051239 13.2003571,2.12029429 C13.7415768,2.23029326 14.0911502,2.75821022 13.9811512,3.29942984 C13.8711522,3.84064945 13.3432353,4.19022286 12.8020157,4.08022389 C12.5403924,4.02705085 12.2722375,4 12,4 C9.790861,4 8,5.790861 8,8 C8,10.209139 9.790861,12 12,12 C13.2748073,12 14.4481613,11.4008085 15.2000781,10.4003828 C15.5318999,9.95889366 16.1587924,9.86999074 16.6002816,10.2018126 C17.0417708,10.5336345 17.1306737,11.1605269 16.7988518,11.6020161 C15.6730783,13.0998584 13.9103951,14 12,14 C8.6862915,14 6,11.3137085 6,8 C6,4.6862915 8.6862915,2 12,2 Z M17.7071068,2.29289322 L19,3.585 L20.2928932,2.29289322 C20.6533772,1.93240926 21.2206082,1.90467972 21.6128994,2.20970461 L21.7071068,2.29289322 C22.0675907,2.65337718 22.0953203,3.22060824 21.7902954,3.61289944 L21.7071068,3.70710678 L20.415,5 L21.7071068,6.29289322 C22.0976311,6.68341751 22.0976311,7.31658249 21.7071068,7.70710678 C21.3165825,8.09763107 20.6834175,8.09763107 20.2928932,7.70710678 L19,6.415 L17.7071068,7.70710678 C17.3466228,8.06759074 16.7793918,8.09532028 16.3871006,7.79029539 L16.2928932,7.70710678 C15.9324093,7.34662282 15.9046797,6.77939176 16.2097046,6.38710056 L16.2928932,6.29289322 L17.585,5 L16.2928932,3.70710678 C15.9023689,3.31658249 15.9023689,2.68341751 16.2928932,2.29289322 C16.6834175,1.90236893 17.3165825,1.90236893 17.7071068,2.29289322 Z"/>
+                    <desc>Lösch-Symbol</desc>
+                </svg>
+                <h1>Account löschen</h1>
+            </div>
+            <p>Bist du dir sicher, dass du deinen Account löschen möchtest?</p>
+            <div class="deletion-buttons">
+                <button class="accept-deletion-button" onclick="accountDeletion()">Account löschen</button>
+                <button class="cancel-deletion-button" onclick="accountDeletion(accepted=false)">Abbrechen</button>
+            </div>
+        </div>
+        <div class="deletion-overlay"></div>
+    </main>
+
+    <!-- Cookie banner -->
+    <div class="cookie-banner">
+        <div class="cookie-header">
+            <svg viewBox="0 0 120.23 122.88">
+                <path d="M98.18,0c3.3,0,5.98,2.68,5.98,5.98c0,3.3-2.68,5.98-5.98,5.98c-3.3,0-5.98-2.68-5.98-5.98 C92.21,2.68,94.88,0,98.18,0L98.18,0z M99.78,52.08c5.16,7.7,11.69,10.06,20.17,4.85c0.28,2.9,0.35,5.86,0.2,8.86 c-1.67,33.16-29.9,58.69-63.06,57.02C23.94,121.13-1.59,92.9,0.08,59.75C1.74,26.59,30.95,0.78,64.1,2.45 c-2.94,9.2-0.45,17.37,7.03,20.15C64.35,44.38,79.49,58.63,99.78,52.08L99.78,52.08z M30.03,47.79c4.97,0,8.99,4.03,8.99,8.99 s-4.03,8.99-8.99,8.99c-4.97,0-8.99-4.03-8.99-8.99S25.07,47.79,30.03,47.79L30.03,47.79z M58.35,59.25c2.86,0,5.18,2.32,5.18,5.18 c0,2.86-2.32,5.18-5.18,5.18c-2.86,0-5.18-2.32-5.18-5.18C53.16,61.57,55.48,59.25,58.35,59.25L58.35,59.25z M35.87,80.59 c3.49,0,6.32,2.83,6.32,6.32c0,3.49-2.83,6.32-6.32,6.32c-3.49,0-6.32-2.83-6.32-6.32C29.55,83.41,32.38,80.59,35.87,80.59 L35.87,80.59z M49.49,32.23c2.74,0,4.95,2.22,4.95,4.95c0,2.74-2.22,4.95-4.95,4.95c-2.74,0-4.95-2.22-4.95-4.95 C44.54,34.45,46.76,32.23,49.49,32.23L49.49,32.23z M76.39,82.8c4.59,0,8.3,3.72,8.3,8.3c0,4.59-3.72,8.3-8.3,8.3 c-4.59,0-8.3-3.72-8.3-8.3C68.09,86.52,71.81,82.8,76.39,82.8L76.39,82.8z M93.87,23.1c3.08,0,5.58,2.5,5.58,5.58 c0,3.08-2.5,5.58-5.58,5.58s-5.58-2.5-5.58-5.58C88.29,25.6,90.79,23.1,93.87,23.1L93.87,23.1z"/>
+                <desc>Cookie-Symbol</desc>
+            </svg>
+            <h1>Cookies</h1>
+        </div>
+        <p>Diese Website nutzt Drittanbieter-Cookies, um dir eine bestmögliche Erfahrung zu garantieren.
+            <a href="/data-protection">Erfahre mehr</a>
+        </p>
+        <div class="cookie-buttons">
+            <button class="accept-cookies-button" onclick="setCookies()">Bestätigen</button>
+            <button class="decline-cookies-button" onclick="setCookies(accepted=false)">Ablehnen</button>
+        </div>
+    </div>
+    <div class="cookie-overlay"></div>
+    <div class="notification"></div>
+
+    <!-- Social media and further links -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="/">Über uns</a></li>
+            <li><a href="/imprint?section=scroll-target">Impressum</a></li>
+            <li><a href="/data-protection">Datenschutz</a></li>
+            <li><a href="/contact">Kontakt</a></li>
+        </ul>
+        <ul class="social-media">
+            <li>
+                <a href="https://www.facebook.com">
+                    <svg viewBox="0 0 50 50"> 
+                        <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,0.5-3,2 v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z"> 
+                        <desc>Facebook Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"/>
+                        <desc>Instagram Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.pinterest.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M25,2C12.3178711,2,2,12.3178711,2,25c0,9.8841553,6.2675781,18.3302612,15.036377,21.5769653	c-0.2525635-2.2515869-0.2129517-5.9390259,0.2037964-7.7243652c0.3902588-1.677002,2.5212402-10.6871338,2.5212402-10.6871338	s-0.6433105-1.2883301-0.6433105-3.1911011c0-2.9901733,1.7324219-5.2211914,3.8898315-5.2211914	c1.8349609,0,2.7197876,1.3776245,2.7197876,3.0281982c0,1.8457031-1.1734619,4.6026611-1.78125,7.1578369	c-0.506897,2.1409302,1.0733643,3.8865356,3.1836548,3.8865356c3.821228,0,6.7584839-4.0296021,6.7584839-9.8453369	c0-5.147583-3.697998-8.7471924-8.9795532-8.7471924c-6.1167603,0-9.7072754,4.588562-9.7072754,9.3309937	c0,1.8473511,0.7111816,3.8286743,1.6000977,4.9069824c0.175293,0.2133179,0.2009277,0.3994141,0.1488647,0.6160278	c-0.1629028,0.678894-0.5250854,2.1392822-0.5970459,2.4385986c-0.0934448,0.3944702-0.3117676,0.4763184-0.7186279,0.2869263	c-2.685791-1.2503052-4.364502-5.1756592-4.364502-8.3295898c0-6.7815552,4.9268188-13.0108032,14.206543-13.0108032	c7.4588623,0,13.2547607,5.3138428,13.2547607,12.4179077c0,7.4100342-4.6729126,13.3729858-11.1568604,13.3729858	c-2.178894,0-4.2263794-1.132019-4.9267578-2.4691772c0,0-1.0783081,4.1048584-1.3404541,5.1112061	c-0.4524536,1.7404175-2.3892822,5.3460083-3.3615723,6.9837036C20.1704712,47.6074829,22.5397949,48,25,48	c12.6826172,0,23-10.3173828,23-23C48,12.3178711,37.6826172,2,25,2z"/>
+                        <desc>Pinterest Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z"/>
+                        <desc>YouTube Logo</desc>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com">
+                    <svg viewBox="0 0 50 50">
+                        <path d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"/>
+                        <desc>TikTok Logo</desc>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <p>&copy; <span class="current-year"></span> Beyond Borders. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/profile.js"></script>
+</body>
+</html>

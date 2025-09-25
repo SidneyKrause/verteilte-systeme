@@ -1,0 +1,476 @@
+/* General styling */
+main {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+/* Search bar */
+.search-bar {
+    text-align: center;
+}
+
+.search-bar-content {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 2rem 2rem 0 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar p {
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+}
+
+.search-bar p:nth-last-of-type(-n+2) {
+    margin-top: 1rem;
+}
+
+#map {
+    flex: 1;
+    width: 100%;
+    height: 250px;
+    min-width: 300px;
+    border-radius: 5px;
+    z-index: 50;
+}
+
+.button-container {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 2px solid var(--grey-accent-color);
+    border-radius: 8px;
+}
+
+.button-item {
+    display: block;
+    border: 1px solid var(--hover-grey-color);
+    border-radius: 8px;
+}
+
+.close-button {
+    display: none;
+    vertical-align: middle;
+    padding: 0;
+    margin-right: 0.3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--hover-grey-color);
+}
+
+.close-button:hover {
+    color: #ff3333;
+}
+
+.highlighted {
+    background-color: var(--hover-grey-color);
+}
+
+.highlighted:hover {
+    background-color: var(--hover-grey-color);
+}
+
+/* Search dropdown menu */
+#countries {
+    width: 100%;
+}
+
+select {
+    padding: 10px 15px;
+    border: 2px solid var(--grey-accent-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    appearance: none;    
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:focus {
+    border-color: var(--hover-grey-color);
+    box-shadow: 0 0 5px var(--grey-accent-color);
+}
+
+#user-warning {
+    display: none;
+    color: #ff3333;
+}
+
+#submit-button {
+    margin-top: 0.6rem;
+    background-color: var(--hover-grey-color);
+}
+
+#submit-button:hover {
+    opacity: 0.8;
+}
+
+/* Card containers */
+.city-cards-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.highlights-title, .city-cards-title {
+    padding: 0 2rem;
+    font-size: 1.5rem;
+}
+
+.city-cards-container, .highlight-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.city-card {
+    position: relative;
+    width: 250px;
+    min-width: 250px;
+    display: inline-block;
+    margin: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.city-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.city-card h1 {
+    margin: 16px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.city-card p {
+    margin: 0 16px 16px;
+    line-height: 1.5;
+}
+
+.city-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Card star and flag */
+.star {
+    position: relative;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    transition: fill 0.3s ease;
+    color: var(--hover-grey-color);
+}
+
+.star path {
+    fill: #fff;
+}
+
+.star path:hover {
+    fill: var(--grey-accent-color);
+}
+
+.active path {
+    fill: #ffd700;
+    stroke: var(--hover-grey-color);
+}
+
+.active path:hover {
+    fill: #ffd700;
+}
+
+.flag-container {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--hover-grey-color);
+    border-radius: 15px 0 15px 0;
+    overflow: hidden;
+}
+
+.flag-container img {
+    width: 130%;
+    height: 130%;
+    object-fit: contain;
+}
+
+/* Favorites section */
+aside {
+    min-width: 300px;
+}
+
+.favorites-section {
+    position: sticky;
+    top: 8.4rem;
+    left: 0;
+    right: 0;
+    height: 81vh;
+    max-height: 81vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 2rem;
+    border: 3px solid var(--dark-accent-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.favorites-section::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-radius: 8px;
+    content: '';
+    pointer-events: none;
+    background: linear-gradient(to top, var(--light-text-color), rgba(255, 255, 255, 0));
+}
+
+.no-gradient::after {
+    content: none;
+}
+
+.favorites-title {
+    position: sticky;
+    margin-bottom: 1rem;
+    z-index: 10;
+    color: var(--dark-accent-color);
+}
+
+#favorites-alert {
+    margin: auto 0;
+    color: var(--dark-accent-color);
+}
+
+#favorites-alert svg {
+    width: 50px;
+    fill: var(--dark-accent-color);
+}
+
+#favorites-alert a {
+    color: var(--dark-accent-color);
+    text-decoration: underline;
+}
+
+#favorites-alert a:hover {
+    color: var(--hover-link-color);
+    transition: fill 0.3s;
+}
+
+.favorite-cards-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+}
+
+.favorite-cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+.favorite-cards-container .city-card {
+    scroll-snap-align: start;
+}
+
+/* Horizontal scrolling container */
+.horizontal-cards-container {
+    width: 95vw;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem;
+    margin: 0 auto;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.horizontal-cards-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.horizontal-cards-container::-webkit-scrollbar-track {
+    padding: 0 2rem;
+    border-radius: 10px;
+    background: #f0f0f0;
+}
+
+.horizontal-cards-container::-webkit-scrollbar-thumb {
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    background-color: var(--grey-accent-color);
+}
+
+.horizontal-cards-container::-webkit-scrollbar-thumb:hover {
+    background-color: var(--hover-grey-color);
+}
+
+.horizontal-cards-container::-webkit-scrollbar-thumb {
+    transition: background-color 0.3s ease;
+}
+
+.city-cards-container {
+    display: none;
+}
+
+/* Media queries */
+@media (min-width: 1300px) {   
+    main{
+        grid-template-columns: 4fr 1fr;
+    }
+}
+
+@media (max-width: 1299px) {
+    aside {
+        min-width: 220px;
+    }
+
+    .favorites-section {
+        position: relative;
+        top: 0;
+        height: auto;
+        max-height: none;
+    }
+
+    .favorites-section::after {
+        display: none;
+    }
+
+    .favorite-cards-container {
+        height: auto;
+        max-height: auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    .search-bar-content {
+        grid-template-columns: 1fr;
+    }
+
+    .favorites-section {
+        height: auto;
+    }
+
+    .favorites-section::after {
+        display: none;
+    }
+
+    .favorite-cards-container {
+        position: relative;
+        display: none;
+        width: 95%;
+        height: fit-content;
+    }
+
+    .favorites-title {
+        margin-bottom: 0;
+    }
+
+    .favorite-cards-container::-webkit-scrollbar {
+        display: block;
+    }
+}
+
+@media (max-width: 430px) {
+    #map {
+        display: none;
+    }
+
+    .favorites-section .city-card {
+        width: 200px;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .favorites-section .city-card .card-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .horizontal-cards-container {
+        width: 85vw;
+    }
+
+    .favorite-cards-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 390px) {
+    .search-bar-content {
+        margin: 1rem;
+    }
+
+    .city-card, .favorites-section .city-card {
+        width: 196px;
+        min-width: 196px;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    .city-card .card-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .favorites-section {
+        margin: 1rem;
+    }
+
+    .horizontal-cards-container {
+        width: 75vw;
+        padding: 1rem 0;
+    }
+
+    .favorite-cards-container {
+        width: 95%;
+        min-width: auto;
+    }
+}

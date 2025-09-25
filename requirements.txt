@@ -1,0 +1,11 @@
+fastapi[all]
+pydantic[email]
+python-multipart
+python-dotenv
+pymongo
+passlib
+argon2-cffi
+PyJWT
+Jinja2
+ruff
+uvicorn
