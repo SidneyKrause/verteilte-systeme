@@ -14,6 +14,9 @@ Beyond Borders ist eine Web-Anwendung, die Ihren Urlaub stressfrei gestaltet! Be
 
 ## Anleitung für das lokale Hosten der Website
 
+> [!IMPORTANT]
+> Die Funktionalitäten der Web-Anwendung wurden lediglich auf Google Chrome getestet. Es wird empfohlen, Google Chrome beim Aufrufen zu nutzen.
+
 ### 1. Im Terminal in den Projektordner navigieren
 ```sh
 cd path-to-project
